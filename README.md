@@ -39,4 +39,4 @@ block body
 
 ```Bash
 DEBUG=emerchantpay-paramsigner node .
-```JavaScript
+```
