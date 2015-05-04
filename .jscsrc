@@ -1,0 +1,8 @@
+{
+	"preset": "crockford",
+	"excludeFiles": [
+		"node_modules/**",
+		"www/config.js"
+	],
+ 	"validateIndentation": 2
+}
