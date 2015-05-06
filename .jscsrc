@@ -4,5 +4,5 @@
 		"node_modules/**",
 		"www/config.js"
 	],
- 	"validateIndentation": 2
+ 	"validateIndentation": 4
 }
