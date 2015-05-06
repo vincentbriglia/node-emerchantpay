@@ -1,6 +1,8 @@
-
-
 ## Usage
+
+### Signer
+
+The signer is to sign form parameters to send to eMerchantPay
 
 ```JavaScript
 app.get('/payment/', function (req, res) {
@@ -35,8 +37,26 @@ block body
   iframe(src='#{url}', frameborder='0', scrolling='0', border='0', style='width: 100%; height:100%; min-height:1600px;')
 ```
 
+### Authenticator
+
+The authenticator is to check the validity of incoming notifications from eMerchantPay
+
 ## Debugging
 
+### All
+
 ```Bash
-DEBUG=emerchantpay-paramsigner node .
+DEBUG=emerchantpay-paramsigner:* node .
+```
+
+#### Signer Only
+
+```Bash
+DEBUG=emerchantpay-paramsigner:signer node .
+```
+
+#### Authenticator Only
+
+```Bash
+DEBUG=emerchantpay-paramsigner:authenticator node .
 ```
