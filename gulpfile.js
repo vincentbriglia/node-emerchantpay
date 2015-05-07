@@ -40,7 +40,9 @@ gulp.task('eslint', function () {
             './lib/**/*.js',
             './test/**/*.js'
         ])
-        .pipe(eslint());
+        .pipe(eslint())
+        .pipe(eslint.format())
+        .pipe(eslint.failOnError());
 });
 
-gulp.task('default', ['coverage']);
+gulp.task('default', ['test']);

@@ -1,29 +1,26 @@
 'use strict';
 var assert = require('assert'),
-    ParamSigner = require('./../lib/index').ParamSigner,
-    _ = require('lodash'),
-    sinon = require('sinon'),
-    url = require('url');
+    ParamSigner = require('./../lib/index').ParamSigner;
 
 require('mocha-sinon');
 
 describe('ParamSigner', function () {
 
     var secret = 'XYZ12345',
-        client_id = '517243',
-        form_id = '1061',
+        clientId = '517243',
+        formId = '1061',
         clock = null,
-        ps, signature, queryString;
+        ps;
 
     beforeEach(function (done) {
         clock = this.sinon.useFakeTimers();
-        done()
+        done();
     });
 
     afterEach(function (done) {
         clock.restore();
-        done()
-    })
+        done();
+    });
 
     it('should fail if config.secret is not set', function (done) {
         assert.throws(function () {
@@ -81,12 +78,12 @@ describe('ParamSigner', function () {
             secret: secret,
             lifetime: 24
         }, {
-            'client_id': client_id,
-            'form_id': form_id
+            'client_id': clientId,
+            'form_id': formId
         });
 
-        assert.equal(ps.getParam('client_id'), client_id, 'error setting client_id');
-        assert.equal(ps.getParam('form_id'), form_id, 'error setting form_id');
+        assert.equal(ps.getParam('client_id'), clientId, 'error setting client_id');
+        assert.equal(ps.getParam('form_id'), formId, 'error setting form_id');
 
         done();
 
@@ -107,7 +104,7 @@ describe('ParamSigner', function () {
         }, Error);
 
         done();
-    })
+    });
 
     it('should fail if config.url is not set', function (done) {
         assert.throws(function () {
@@ -165,4 +162,4 @@ describe('ParamSigner', function () {
 
     });
 
-})
+});

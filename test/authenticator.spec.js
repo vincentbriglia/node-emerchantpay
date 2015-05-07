@@ -2,14 +2,13 @@
 var assert = require('assert'),
     ParamAuthenticator = require('./../lib/index').ParamAuthenticator,
     ParamSigner = require('./../lib/index').ParamSigner,
-    _ = require('lodash'),
     url = require('url');
 
 describe('ParamAuthenticator', function () {
 
     var secret = 'XYZ12345',
-        client_id = '517243',
-        form_id = '1061',
+        clientId = '517243',
+        formId = '1061',
         pa, ps, signature, queryString;
 
     beforeEach(function (done) {
@@ -17,16 +16,15 @@ describe('ParamAuthenticator', function () {
             secret: secret
         });
         ps.setURL('https://payment-xxxxxxx.emerchantpay.com/payment/form/post');
-        ps.setParam('client_id', client_id);
-        ps.setParam('form_id', form_id);
+        ps.setParam('client_id', clientId);
+        ps.setParam('form_id', formId);
 
         // override these when you change stuff
         queryString = url.parse(ps.getUrlWithQueryString(), true).query;
         signature = ps.getSignature();
 
         done();
-    })
-
+    });
 
     it('should fail if no config.secret is set', function (done) {
         assert.throws(function () {
@@ -131,4 +129,4 @@ describe('ParamAuthenticator', function () {
         done();
     });
 
-})
+});
