@@ -7,9 +7,20 @@ The signer is to sign form parameters to send to eMerchantPay
 ```JavaScript
 app.get('/payment/', function (req, res) {
 
-    var Eps = require('emerchantpay-paramsigner');
+    var ParamSigner = require('node-emerchantpay').ParamSigner;
+    // initialize it from the constructor
+    var ps = new ParamSigner({
+        // secret, url, lifetime, signatureType
+        secret: 'xxxxxxxx',
+        url: 'https://payment-xxxxxxxxx.emerchantpay.com/payment/form/post'
+    }, {
+        // key/value params
+        'client_id': 'xxxxxxxxxx',
+        'form_id': 'xxxxxxxxx'
+    });
+    // or initialize it using setters
 
-    var ps = new Eps();
+    var ps = new ParamSigner();
 
     ps.setURL('https://payment-xxxxxxxxx.emerchantpay.com/payment/form/post');
     ps.setSecret('xxxxxxxx');
@@ -18,7 +29,6 @@ app.get('/payment/', function (req, res) {
     ps.setParam('test_transaction', 1);
     ps.setParam('item_1_code', 'premium');
     ps.setParam('item_1_predefined', 1);
-
     ps.setParam('customer_email', req.user.email);
 
     var url = ps.getUrlWithQueryString();
@@ -41,22 +51,33 @@ block body
 
 The authenticator is to check the validity of incoming notifications from eMerchantPay
 
+```JavaScript
+app.get('/payment/', function (req, res) {
+
+    var ParamAuthenticator = require('node-emerchantpay').ParamAuthenticator;
+    var pa = new ParamAuthenticator({
+        secret: 'xxxxxxx'
+    }, req.body); // returs true or false or throws an error
+
+});
+```
+
 ## Debugging
 
 ### All
 
 ```Bash
-DEBUG=emerchantpay-paramsigner:* node .
+DEBUG=node-emerchantpay:* node .
 ```
 
 #### Signer Only
 
 ```Bash
-DEBUG=emerchantpay-paramsigner:signer node .
+DEBUG=node-emerchantpay:signer node .
 ```
 
 #### Authenticator Only
 
 ```Bash
-DEBUG=emerchantpay-paramsigner:authenticator node .
+DEBUG=node-emerchantpay:authenticator node .
 ```

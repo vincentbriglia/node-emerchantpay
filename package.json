@@ -1,5 +1,5 @@
 {
-  "name": "emerchantpay-paramsigner",
+  "name": "node-emerchantpay",
   "version": "0.1.0",
   "description": "Parameter Signing for Communicating with eMerchantPay Forms",
   "main": "./lib/index.js",
