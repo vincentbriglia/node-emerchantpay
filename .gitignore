@@ -1,7 +1,2 @@
 node_modules
-
-.coverdata
-.coverrun
-coverage.html
-
-debug
+coverage

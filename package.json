@@ -4,7 +4,8 @@
   "description": "Parameter Signing for Communicating with eMerchantPay Forms",
   "main": "./lib/index.js",
   "scripts": {
-    "test": "gulp test"
+    "test": "gulp test",
+    "coveralls": "gulp report-coverage"
   },
   "author": "Vincent Briglia <vincent@jivaro.com>",
   "license": "ISC",
@@ -17,7 +18,9 @@
     "gulp": "^3.8.11",
     "gulp-complexity": "^0.3.0",
     "gulp-coverage": "^0.3.35",
+    "gulp-coveralls": "^0.1.4",
     "gulp-eslint": "^0.11.1",
+    "gulp-istanbul": "^0.9.0",
     "gulp-mocha": "^2.0.1",
     "mocha": "^2.2.4",
     "mocha-sinon": "^1.1.4"

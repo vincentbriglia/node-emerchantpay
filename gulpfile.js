@@ -3,35 +3,36 @@
 var gulp = require('gulp'),
     mocha = require('gulp-mocha'),
     eslint = require('gulp-eslint'),
-    coverage = require('gulp-coverage'),
-    complexity = require('gulp-complexity');
+    istanbul = require('gulp-istanbul'),
+    coveralls = require('gulp-coveralls')
 
 gulp.task('test', ['eslint'], function () {
     return gulp.src('./test/**/*.js', {
             read: false
         })
-        .pipe(complexity())
-        .pipe(coverage.instrument({
-            pattern: [
-                './lib/**/*.js'
-            ],
-            debugDirectory: 'debug'
-        }))
         .pipe(mocha({
             reporter: 'spec'
         }))
-        .pipe(coverage.report({
-            outFile: 'coverage.html'
-        }))
-        .pipe(coverage.enforce());
 });
 
-gulp.task('complexity', function () {
-    return gulp.src([
-            './lib/**/*.js',
-            './test/**/*.js'
-        ])
-        .pipe(complexity());
+gulp.task('coverage', function (done) {
+    // no return, don't return the stream when callbacking
+    gulp.src('./lib/**/*.js')
+        .pipe(istanbul()) // covering files
+        .pipe(istanbul.hookRequire())
+        .on('finish', function () {
+            gulp.src('./test/**/*.js')
+                .pipe(mocha({
+                    reporter: 'spec'
+                }))
+                .pipe(istanbul.writeReports()) // Creating the reports after tests runned
+                .on('end', done);
+        });
+});
+
+gulp.task('report-coverage', ['coverage'], function () {
+    return gulp.src('coverage/**/lcov.info')
+               .pipe(coveralls());
 });
 
 gulp.task('eslint', function () {
@@ -42,4 +43,4 @@ gulp.task('eslint', function () {
         .pipe(eslint());
 });
 
-gulp.task('default', ['test', 'complexity']);
+gulp.task('default', ['coverage']);
