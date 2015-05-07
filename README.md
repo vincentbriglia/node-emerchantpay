@@ -1,5 +1,4 @@
 [![Build Status](https://travis-ci.org/vincentbriglia/node-emerchantpay.svg?branch=master)](https://travis-ci.org/vincentbriglia/node-emerchantpay)
-[![Coverage Status](https://coveralls.io/repos/vincentbriglia/node-emerchantpay/badge.svg)](https://coveralls.io/r/vincentbriglia/node-emerchantpay)
 [![Dependency Status](https://gemnasium.com/vincentbriglia/node-emerchantpay.svg)](https://gemnasium.com/vincentbriglia/node-emerchantpay)
 
 ## Usage

@@ -4,7 +4,7 @@
   "description": "Parameter Signing for Communicating with eMerchantPay Forms",
   "main": "./lib/index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "gulp test"
   },
   "author": "Vincent Briglia <vincent@jivaro.com>",
   "license": "ISC",
