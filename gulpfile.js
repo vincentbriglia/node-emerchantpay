@@ -4,7 +4,7 @@ var gulp = require('gulp'),
     mocha = require('gulp-mocha'),
     eslint = require('gulp-eslint'),
     istanbul = require('gulp-istanbul'),
-    coveralls = require('gulp-coveralls')
+    coveralls = require('gulp-coveralls');
 
 gulp.task('test', ['eslint'], function () {
     return gulp.src('./test/**/*.js', {
@@ -12,7 +12,7 @@ gulp.task('test', ['eslint'], function () {
         })
         .pipe(mocha({
             reporter: 'spec'
-        }))
+        }));
 });
 
 gulp.task('coverage', function (done) {
@@ -38,7 +38,8 @@ gulp.task('report-coverage', ['coverage'], function () {
 gulp.task('eslint', function () {
     return gulp.src([
             './lib/**/*.js',
-            './test/**/*.js'
+            './test/**/*.js',
+            './gulpfile.js'
         ])
         .pipe(eslint())
         .pipe(eslint.format())
