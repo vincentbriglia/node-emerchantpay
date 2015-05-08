@@ -31,7 +31,7 @@ gulp.task('coverage', function (done) {
 });
 
 gulp.task('report-coverage', ['coverage'], function () {
-    return gulp.src('coverage/**/lcov.info')
+    return gulp.src('./coverage/**/lcov.info')
                .pipe(coveralls());
 });
 
