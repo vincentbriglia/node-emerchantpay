@@ -15,7 +15,7 @@ gulp.task('test', ['eslint'], function () {
         }));
 });
 
-gulp.task('coverage', function (done) {
+gulp.task('coverage', ['eslint'], function (done) {
     // no return, don't return the stream when callbacking
     gulp.src('./lib/**/*.js')
         .pipe(istanbul()) // covering files
