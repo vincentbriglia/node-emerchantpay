@@ -9,6 +9,8 @@
         "it": false,
         "describe": false,
         "sinon": false,
+        "before": false,
+        "after": false,
         "beforeEach": false,
         "afterEach": false
     },
