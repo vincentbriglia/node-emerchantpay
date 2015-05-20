@@ -28,8 +28,6 @@ describe('ParamAuthenticator', function () {
         queryString = url.parse(ps.getUrlWithQueryString(), true).query;
         signature = ps.getSignature();
 
-        console.log('signature', signature);
-
         done();
     });
 
