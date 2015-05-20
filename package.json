@@ -16,6 +16,7 @@
     "sorted-object": "^1.0.0"
   },
   "devDependencies": {
+    "chai": "^2.3.0",
     "gulp": "^3.8.11",
     "gulp-coveralls": "^0.1.4",
     "gulp-eslint": "^0.11.1",

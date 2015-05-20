@@ -4,14 +4,19 @@ var assert = require('assert'),
     ParamSigner = require('./../lib/index').ParamSigner,
     url = require('url');
 
+require('mocha-sinon');
+
 describe('ParamAuthenticator', function () {
 
     var secret = 'XYZ12345',
         clientId = '517243',
         formId = '1061',
+        clock = null,
         pa, ps, signature, queryString;
 
     beforeEach(function (done) {
+        clock = this.sinon.useFakeTimers();
+
         ps = new ParamSigner({
             secret: secret
         });
@@ -23,6 +28,13 @@ describe('ParamAuthenticator', function () {
         queryString = url.parse(ps.getUrlWithQueryString(), true).query;
         signature = ps.getSignature();
 
+        console.log('signature', signature);
+
+        done();
+    });
+
+    afterEach(function (done) {
+        clock.restore();
         done();
     });
 
