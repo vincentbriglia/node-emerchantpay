@@ -62,6 +62,19 @@ block body
 The authenticator is to check the validity of incoming notifications from eMerchantPay
 
 ```JavaScript
+app.get('/payment/', function (req, res) {
+    var ParamAuthenticator = require('node-emerchantpay').ParamAuthenticator;
+    var pa = new ParamAuthenticator({
+        secret: 'xxxxxxx'
+    }, req.body); // returs true or false or throws an error
+});
+```
+
+### Webhook
+
+The webhook is there to hook into express and also to provide you with means to process notification events
+
+```JavaScript
 app.post('/payment/', function (req, res, next) {
 
     empWebhook = new EmpWebhook({
@@ -75,21 +88,6 @@ app.post('/payment/', function (req, res, next) {
     })
 
     return empWebhook(req, res, next);
-
-});
-```
-
-### Webhook
-
-The webhook is there to hook into express and also to provide you with means to process notification events
-
-```JavaScript
-app.get('/payment/', function (req, res) {
-
-    var ParamAuthenticator = require('node-emerchantpay').ParamAuthenticator;
-    var pa = new ParamAuthenticator({
-        secret: 'xxxxxxx'
-    }, req.body); // returs true or false or throws an error
 
 });
 ```
