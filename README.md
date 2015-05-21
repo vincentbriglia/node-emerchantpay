@@ -1,8 +1,14 @@
 [![Build Status](https://travis-ci.org/vincentbriglia/node-emerchantpay.svg?branch=master)](https://travis-ci.org/vincentbriglia/node-emerchantpay)
 [![Dependency Status](https://gemnasium.com/vincentbriglia/node-emerchantpay.svg)](https://gemnasium.com/vincentbriglia/node-emerchantpay)
 [![Coverage Status](https://coveralls.io/repos/vincentbriglia/node-emerchantpay/badge.svg?branch=master)](https://coveralls.io/r/vincentbriglia/node-emerchantpay?branch=master)
+[![Npm Version](https://badge.fury.io/js/node-emerchantpay.svg)](http://badge.fury.io/js/node-emerchantpay)
 
 ## Usage
+
+This toolkit exposes 3 utilities: 
+  * Parameter Signer (to sign and send)
+  * Parameter Authenticator (to unsign and read signed parameters)
+  * Express webhook (to process notification events)
 
 ### Signer
 
@@ -56,6 +62,28 @@ block body
 The authenticator is to check the validity of incoming notifications from eMerchantPay
 
 ```JavaScript
+app.post('/payment/', function (req, res, next) {
+
+    empWebhook = new EmpWebhook({
+        secret: 'xxxxxxxxx',
+        notifications: {
+            'order': function (notification, response) {
+                trace.log('processed order: ' + notification.notification_type);
+                response.status(200).send('OK');
+            }
+        }
+    })
+
+    return empWebhook(req, res, next);
+
+});
+```
+
+### Webhook
+
+The webhook is there to hook into express and also to provide you with means to process notification events
+
+```JavaScript
 app.get('/payment/', function (req, res) {
 
     var ParamAuthenticator = require('node-emerchantpay').ParamAuthenticator;
@@ -84,4 +112,10 @@ DEBUG=node-emerchantpay:signer node .
 
 ```Bash
 DEBUG=node-emerchantpay:authenticator node .
+```
+
+#### Webhook Only
+
+```Bash
+DEBUG=node-emerchantpay:webhook node .
 ```
