@@ -7,8 +7,9 @@ before_script:
   - npm install -g gulp
   - npm install -g codeclimate-test-reporter
 script: npm run-script coveralls
-only:
-  - master
+branches:
+  only:
+    - master
 after_script:
   - codeclimate < ./coverage/lcov.info
 env:
