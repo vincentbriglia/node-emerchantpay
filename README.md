@@ -13,7 +13,7 @@ This toolkit exposes 3 utilities:
 
 ### Signer
 
-The signer is to sign form parameters to send to eMerchantPay
+The signer is to sign form parameters to send to eMerchantPay.
 
 ```JavaScript
 app.get('/payment/', function (req, res) {
