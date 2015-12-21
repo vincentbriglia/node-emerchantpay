@@ -12,6 +12,7 @@ branches:
     - master
 after_script:
   - codeclimate < ./coverage/lcov.info
+  - gulp report-codacy
 env:
   global:
     secure: iZiEJXBp2fblZJC+9ijxDEZveYLEu4NfO6Fe5ye6oLOXAaPi1vAaRBUmt7mdq/NMEDGWZTSlAyLwNPxKsP96RWQOnrK8/uAE5VA07eM1w6cxwBjHtCaXgp4heQGozrmknuQTbt+88DfdJvnPSnXAwCgnKpHI0cw+jKzFzGNkssA=
