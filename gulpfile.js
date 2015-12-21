@@ -4,7 +4,7 @@ var gulp = require('gulp'),
     mocha = require('gulp-mocha'),
     eslint = require('gulp-eslint'),
     istanbul = require('gulp-istanbul'),
-    codacy = require('gulp-codacy').
+    codacy = require('gulp-codacy'),
     coveralls = require('gulp-coveralls');
 
 gulp.task('test', ['eslint'], function () {
