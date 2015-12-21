@@ -4,6 +4,7 @@ var gulp = require('gulp'),
     mocha = require('gulp-mocha'),
     eslint = require('gulp-eslint'),
     istanbul = require('gulp-istanbul'),
+    codacy = require('gulp-codacy').
     coveralls = require('gulp-coveralls');
 
 gulp.task('test', ['eslint'], function () {
@@ -33,6 +34,11 @@ gulp.task('coverage', ['eslint'], function (done) {
 gulp.task('report-coverage', ['coverage'], function () {
     return gulp.src('./coverage/**/lcov.info')
                .pipe(coveralls());
+});
+
+gulp.task('report-codacy', function codacyTask() {
+    return gulp.src('./coverage/**/lcov.info')
+               .pipe(codacy());
 });
 
 gulp.task('eslint', function () {

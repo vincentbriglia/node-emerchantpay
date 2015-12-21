@@ -17,6 +17,7 @@
   "devDependencies": {
     "chai": "^3.3.0",
     "gulp": "^3.9.0",
+    "gulp-codacy": "^1.0.0",
     "gulp-coveralls": "^0.1.4",
     "gulp-eslint": "^1.0.0",
     "gulp-istanbul": "^0.10.0",
