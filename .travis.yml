@@ -6,7 +6,7 @@ node_js:
 before_script:
   - npm install -g gulp
   - npm install -g codeclimate-test-reporter
-script: npm run-script coveralls
+script: gulp coverage
 branches:
   only:
     - master
