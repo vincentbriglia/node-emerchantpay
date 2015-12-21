@@ -11,7 +11,7 @@ branches:
   only:
     - master
 after_script:
-  - codeclimate < ./coverage/lcov.info
+  - gulp report-coverage
   - gulp report-codacy
 env:
   global:

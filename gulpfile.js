@@ -36,7 +36,7 @@ gulp.task('report-coverage', ['coverage'], function () {
                .pipe(coveralls());
 });
 
-gulp.task('report-codacy', ['coverage'], function codacyTask() {
+gulp.task('report-codacy', ['report-coverage'], function codacyTask() {
     return gulp.src('./coverage/**/lcov.info')
                .pipe(codacy());
 });
