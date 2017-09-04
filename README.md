@@ -6,6 +6,8 @@
 
 ## Usage
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/vincentbriglia/node-emerchantpay.svg)](https://greenkeeper.io/)
+
 This toolkit exposes 3 utilities: 
   * Parameter Signer (to sign and send)
   * Parameter Authenticator (to unsign and read signed parameters)
