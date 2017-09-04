@@ -12,6 +12,7 @@ script: gulp coverage
 branches:
   only:
     - master
+    - /^greenkeeper/.*$/
 after_script:
   - gulp report-coverage
   - gulp report-codacy
