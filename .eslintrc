@@ -1,25 +1,25 @@
 {
-    "ecmaFeatures": {
-        "arrowFunctions": false
-    },
-    "globals": {
-        "module": false,
-        "define": false,
-        "expect": false,
-        "it": false,
-        "describe": false,
-        "sinon": false,
-        "before": false,
-        "after": false,
-        "beforeEach": false,
-        "afterEach": false
-    },
-    "env": {
-        "node": true
-    },
-    "rules": {
-        "quotes": [2, "single", "avoid-escape"],
-        "no-mixed-requires": 0,
-        "no-use-before-define": 0
-    }
+  "extends": ["prettier"],
+  "plugins": ["prettier"],
+  "globals": {
+    "module": false,
+    "define": false,
+    "expect": false,
+    "it": false,
+    "describe": false,
+    "sinon": false,
+    "before": false,
+    "after": false,
+    "beforeEach": false,
+    "afterEach": false
+  },
+  "env": {
+    "node": true
+  },
+  "rules": {
+    "prettier/prettier": [
+      "error",
+      { "singleQuote": true, "trailingComma": "es5", "printWidth": 100 }
+    ]
+  }
 }
