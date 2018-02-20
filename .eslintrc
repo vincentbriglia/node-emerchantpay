@@ -1,5 +1,5 @@
 {
-  "extends": ["prettier"],
+  "extends": ["prettier", "plugin:prettier/recommended"],
   "plugins": ["prettier"],
   "globals": {
     "module": false,

@@ -92,9 +92,7 @@ describe('Webhook', function() {
     })(req, res, nxt);
   });
 
-  it('should succeed and set req.eMerchantPayNotification if config.respond is set', function(
-    done
-  ) {
+  it('should succeed and set req.eMerchantPayNotification if config.respond is set', function(done) {
     req.body = {
       PS_SIGNATURE: signature,
       PS_SIGTYPE: 'md5',
@@ -120,9 +118,7 @@ describe('Webhook', function() {
     })(req, res, nxt);
   });
 
-  it('should succeed and send set req.eMerchantPayNotification if config.respond is set', function(
-    done
-  ) {
+  it('should succeed and send set req.eMerchantPayNotification if config.respond is set', function(done) {
     req.body = {
       PS_SIGNATURE: signature,
       PS_SIGTYPE: 'md5',
