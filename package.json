@@ -14,7 +14,7 @@
   "license": "ISC",
   "dependencies": {
     "debug": "^3.1.0",
-    "lodash": "^4.17.5",
+    "lodash": "^4.17.11",
     "sorted-object": "^2.0.1"
   },
   "devDependencies": {
